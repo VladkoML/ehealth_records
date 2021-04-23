@@ -20,4 +20,9 @@ public class Specialization {
     public void setNameSpecialization(String nameSpecialization) {
         this.nameSpecialization = nameSpecialization;
     }
+
+    @Override
+    public String toString() {
+        return "ID: " + getSpecializationId() + " || " + getNameSpecialization();
+    }
 }

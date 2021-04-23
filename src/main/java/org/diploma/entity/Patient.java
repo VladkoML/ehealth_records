@@ -9,7 +9,11 @@ public class Patient {
     private LocalDate birthday;
     private String gender;
     private String info;
+    private String email;
+    private String password;
     private String bloodType;
+    private Integer weight;
+    private Integer height;
     private Long doctorId;
 
     public Long getPatientId() {
@@ -66,5 +70,37 @@ public class Patient {
 
     public void setDoctorId(Long doctorId) {
         this.doctorId = doctorId;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public Integer getWeight() {
+        return weight;
+    }
+
+    public void setWeight(Integer weight) {
+        this.weight = weight;
+    }
+
+    public Integer getHeight() {
+        return height;
+    }
+
+    public void setHeight(Integer height) {
+        this.height = height;
     }
 }

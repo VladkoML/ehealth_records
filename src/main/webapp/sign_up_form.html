@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="ui/css/sign_up_style.css">
+    <title>Sign up</title>
+</head>
+<body>
+
+<form action="" style="border:1px solid #ccc">
+    <div class="container">
+        <h1>Реєстрація</h1>
+        <p>Будь-ласка, заповніть форму, щоб створити акаунт.</p>
+        <hr>
+
+        <label for="email"><b>Email</b></label>
+        <input type="text" placeholder="Введіть email" name="email" required>
+
+        <label for="password"><b>Password</b></label>
+        <input type="password" placeholder="Введіть пароль" name="password" required>
+
+        <label for="password-repeat"><b>Repeat Password</b></label>
+        <input type="password" placeholder="Повторіть пароль" name="password-repeat" required>
+
+        <hr>
+
+        <label for="name"><b>Full name</b></label>
+        <input type="text" placeholder="Введіть повне ім'я" name="name" required>
+
+        <label for="birthday"><b>Birthday</b></label><br>
+        <input id="datefield" type="date" name="birthday" min="1920-01-01" required><br><br>
+
+        <label for="gender"><b>Gender</b></label>
+        <input type="password" placeholder="Вкажіть стать" name="gender" required>
+
+        <p><select>
+            <option disabled>Виберіть групу крові</option>
+            <option value="I(0)+">I(0)+</option>
+            <option value="I(0)-">I(0)-</option>
+            <option value="II(A)+">II(A)+</option>
+            <option value="II(A)-">II(A)-</option>
+            <option value="III(B)+">III(B)+</option>
+            <option value="III(B)-">III(B)-</option>
+            <option value="IV(AB)+">IV(AB)+</option>
+            <option value="IV(AB)-">IV(AB)-</option>
+        </select></p>
+
+        <label for="weight"><b>Weight</b></label>
+        <input type="text" placeholder="Введіть вагу" name="weight" required>
+
+        <label for="height"><b>Height</b></label>
+        <input type="text" placeholder="Введіть зріст" name="height" required>
+
+        <label for="blood_type"><b>Blood type</b></label>
+        <input type="password" placeholder="Виберіть групу крові" name="blood_type" required>
+
+        <div class="clearfix">
+            <a href="fill_data.html"><button type="button" class="cancelbtn">Назад</button></a>
+            <button type="submit" class="signupbtn">Реєстрація</button>
+        </div>
+    </div>
+</form>
+
+<script type="text/javascript">
+function f1(){
+
+    var today = new Date();
+    var dd = today.getDate();
+    var mm = today.getMonth()+1; //January is 0!
+    var yyyy = today.getFullYear();
+    if(dd<10){
+        dd='0'+dd
+    }
+    if(mm<10){
+        mm='0'+mm
+    }
+
+    today = yyyy+'-'+mm+'-'+dd;
+    document.getElementById("datefield").setAttribute("max", today);
+    document.getElementById("datefield").setAttribute("value", today);
+
+}
+
+window.onload = f1;
+
+</script>
+
+</body>
+</html>
