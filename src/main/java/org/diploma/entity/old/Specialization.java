@@ -1,4 +1,4 @@
-package org.diploma.entity;
+package org.diploma.entity.old;
 
 public class Specialization {
 

@@ -6,20 +6,46 @@ import java.sql.ResultSet;
 
 public class LoginDAO {
 
-    public static boolean validate(String email,String pass){
+    public static int validate(String email,String pass){
 
-        boolean status = false;
+        int status = 0;
 
         try (Connection con = ConnectionDB.getConnection()){
 
-            PreparedStatement ps = con.prepareStatement("SELECT * FROM patient WHERE email=? and password=?");
+            PreparedStatement ps = con.prepareStatement("SELECT * FROM patients WHERE email=? AND password=?");
             ps.setString(1,email);
             ps.setString(2,pass);
 
             ResultSet rs = ps.executeQuery();
-            status = rs.next();
+
+            //status = rs.getInt("patient_id");
+
+            if(rs.next())
+                status = rs.getInt("patient_id");
+
+            return status;
 
         }catch(Exception e){
+            System.out.println(e);
+        }
+
+        return status;
+
+    }
+
+    public static boolean validate(String email) {
+
+        boolean status = false;
+
+        try (Connection con = ConnectionDB.getConnection()) {
+
+            PreparedStatement ps = con.prepareStatement("SELECT * FROM patients WHERE email=?");
+            ps.setString(1, email);
+
+            ResultSet rs = ps.executeQuery();
+            status = rs.next();
+
+        } catch (Exception e){
             System.out.println(e);
         }
 

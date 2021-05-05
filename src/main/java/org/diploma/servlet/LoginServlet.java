@@ -1,6 +1,9 @@
 package org.diploma.servlet;
 
+import org.diploma.dao.CrudDAO;
 import org.diploma.dao.LoginDAO;
+import org.diploma.dao.PatientDAOImpl;
+import org.diploma.entity.Patient;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -10,6 +13,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.SQLException;
+import java.util.Optional;
 
 @WebServlet(name = "LoginServlet", urlPatterns = {"/loginServlet"})
 public class LoginServlet extends HttpServlet {
@@ -19,23 +24,30 @@ public class LoginServlet extends HttpServlet {
         resp.setContentType("text/html; charset=UTF-8");
         PrintWriter out = resp.getWriter();
 
-//        List<Specialization> list = spec.getAll();
-//        for(Specialization s : SpecializationDAO.getAll()) {
-//            out.write("<h5>" + s.toString() + "</h5>");
-//        }
+        String email = req.getParameter("email");
+        String password = req.getParameter("pass");
+        int id = LoginDAO.validate(email, password);
+//        out.write("<script type=\"text/javascript\">\n" +
+//                "console.log(" + id + ")" +
+//                "</script>");
 
-        String name = req.getParameter("usermail");
-        String password = req.getParameter("userpass");
+        if(id > 0){
 
-        if(LoginDAO.validate(name, password)){
+            CrudDAO<Patient> p = new PatientDAOImpl();
+            Patient patient = p.find(id);
 
-            RequestDispatcher requestDispatcher = req.getRequestDispatcher("welcomeServlet");
+            req.setAttribute("patient", patient);
+
+            RequestDispatcher requestDispatcher = req.getRequestDispatcher("/profile.jsp");
             requestDispatcher.forward(req, resp);
 
         } else {
 
-            out.write("<h1>" + "Sorry username or password error!" + "</h1>");
-            RequestDispatcher requestDispatcher = req.getRequestDispatcher("index.html");
+//            out.write("<h2 class=\"user__title\">" + "Email or password is incorrect!" + "</h2>");
+            out.write("<script type=\"text/javascript\">\n" +
+                    "alert(\"Email or password is incorrect\")" +
+                    "</script>");
+            RequestDispatcher requestDispatcher = req.getRequestDispatcher("login.html");
             requestDispatcher.include(req, resp);
 
         }

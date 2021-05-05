@@ -1,7 +1,7 @@
 package org.diploma.dao.old;
 
 import org.diploma.dao.ConnectionDB;
-import org.diploma.entity.Specialization;
+import org.diploma.entity.old.Specialization;
 
 import java.sql.Connection;
 import java.sql.ResultSet;

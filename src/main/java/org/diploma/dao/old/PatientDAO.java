@@ -1,6 +1,6 @@
 package org.diploma.dao.old;
 
-import org.diploma.entity.Patient;
+import org.diploma.entity.old.Patient;
 
 public class PatientDAO {
 
