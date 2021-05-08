@@ -8,9 +8,7 @@ import org.diploma.entity.Patient;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.*;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
@@ -26,28 +24,32 @@ public class LoginServlet extends HttpServlet {
 
         String email = req.getParameter("email");
         String password = req.getParameter("pass");
+
+        Patient patient = null;
+
         int id = LoginDAO.validate(email, password);
-//        out.write("<script type=\"text/javascript\">\n" +
-//                "console.log(" + id + ")" +
-//                "</script>");
+
+        HttpSession session = req.getSession();
 
         if(id > 0){
 
             CrudDAO<Patient> p = new PatientDAOImpl();
-            Patient patient = p.find(id);
+
+            patient = p.find(id);
+
+            session.setAttribute("patient", patient);
 
             req.setAttribute("patient", patient);
 
-            RequestDispatcher requestDispatcher = req.getRequestDispatcher("/profile.jsp");
+            RequestDispatcher requestDispatcher = req.getRequestDispatcher("/menu.html");
             requestDispatcher.forward(req, resp);
 
         } else {
 
-//            out.write("<h2 class=\"user__title\">" + "Email or password is incorrect!" + "</h2>");
             out.write("<script type=\"text/javascript\">\n" +
                     "alert(\"Email or password is incorrect\")" +
                     "</script>");
-            RequestDispatcher requestDispatcher = req.getRequestDispatcher("login.html");
+            RequestDispatcher requestDispatcher = req.getRequestDispatcher("index.html");
             requestDispatcher.include(req, resp);
 
         }

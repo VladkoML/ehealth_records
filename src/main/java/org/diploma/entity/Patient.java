@@ -1,6 +1,7 @@
 package org.diploma.entity;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Patient {
@@ -18,9 +19,9 @@ public class Patient {
     private String addressOfWork;
     private String bloodType;
     private String profession;
-    private List<Record> records;
-    private List<Result> results;
-    private List<Vaccination> vaccinations;
+    private List<Record> records = new ArrayList<>();
+    private List<Result> results = new ArrayList<>();
+    private List<Vaccination> vaccinations = new ArrayList<>();
 
     public Patient(){
 
@@ -46,9 +47,7 @@ public class Patient {
                    String info, String addressOfResidence, String addressOfWork, String bloodType,
                    String profession, List<Record> records, List<Result> results, List<Vaccination> vaccinations) {
 
-        this.patientId = patientId;
         this.email = email;
-        this.password = password;
         this.fullName = fullName;
         this.birthday = birthday;
         this.weight = weight;

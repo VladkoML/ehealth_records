@@ -12,10 +12,23 @@ public class Record {
     private String nameOfHospital;
     private String addressOfHospital;
     private String nameOfDoctor;
-    private Patient patient;
+    private Patient patient = new Patient();
 
-    public Record(){
+    public Record() {
 
+    }
+
+    public Record(LocalDate createdIn, String disease, String complains,
+                  String medicalTreatment, String nameOfHospital, String addressOfHospital,
+                  String nameOfDoctor, Patient patient) {
+        this.createdIn = createdIn;
+        this.disease = disease;
+        this.complains = complains;
+        this.medicalTreatment = medicalTreatment;
+        this.nameOfHospital = nameOfHospital;
+        this.addressOfHospital = addressOfHospital;
+        this.nameOfDoctor = nameOfDoctor;
+        this.patient = patient;
     }
 
     public Record(Integer recordId, LocalDate createdIn, String disease,
@@ -104,5 +117,19 @@ public class Record {
 
     public void setPatient(Patient patient) {
         this.patient = patient;
+    }
+
+    @Override
+    public String toString() {
+        return "Record{" +
+                "createdIn=" + createdIn +
+                ", disease='" + disease + '\'' +
+                ", complains='" + complains + '\'' +
+                ", medicalTreatment='" + medicalTreatment + '\'' +
+                ", nameOfHospital='" + nameOfHospital + '\'' +
+                ", addressOfHospital='" + addressOfHospital + '\'' +
+                ", nameOfDoctor='" + nameOfDoctor + '\'' +
+                ", patient=" + patient.getFullName() +
+                '}';
     }
 }

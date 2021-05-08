@@ -1,35 +1,34 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="ui/css/log_in_style.css">
-    <title>Log in</title>
+  <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="ui/css/start_form_style.css">
+  <title>Login</title>
 </head>
 <body>
 
-<form action="loginServlet" method="post">
+<div class="user">
+  <header class="user__header">
+    <h1 class="user__title">Login</h1>
+  </header>
 
-    <h2 class="title">Вхід в систему</h2>
-    <hr>
+  <form class="form" action="loginServlet" method="POST">
 
-    <div class="imgcontainer">
-        <img src="ui/img/unknown.png" alt="Avatar" class="avatar">
+    <div class="form__group">
+      <input type="email" placeholder="Email" class="form__input" name="email" required>
     </div>
 
-    <div class="container">
-        <label for="usermail"><b>Username</b></label>
-        <input type="text" placeholder="Введіть email" name="usermail" required>
-
-        <label for="userpass"><b>Password</b></label>
-        <input type="password" placeholder="Введіть пароль" name="userpass" required>
-
-        <button type="submit">Ввійти</button>
+    <div class="form__group">
+      <input type="password" placeholder="Пароль" class="form__input" name="pass" required>
     </div>
 
-    <div class="bot" style="background-color:#f1f1f1">
-        <a href="sign_up_form.html" class="cancelbtn">Реєстрація</a>
+    <button class="btn" type="submit">Login</button>
+
+    <div class="link">
+      <a href="sign_up.html">Sign Up</a>
     </div>
-</form>
+  </form>
+</div>
 
 </body>
 </html>
