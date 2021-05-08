@@ -6,8 +6,31 @@
     <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
     <title>Записи</title>
     <link rel="stylesheet" href="ui/css/records_style.css">
+    <link rel="stylesheet" href="ui/css/menu_style.css">
 </head>
 <body>
+
+    <header>
+
+                <h1 id="logo">Медична картка амбулаторного хворого</h1>
+
+                <input type="checkbox" id="hmt" class="hidden-menu-ticker">
+                    <label class="btn-menu" for="hmt">
+                        <span class="first"></span>
+                        <span class="second"></span>
+                        <span class="third"></span>
+                    </label>
+                    <ul class="hidden-menu">
+                        <li style="display: flex; flex-direction: column;">
+                            <a href="profile.jsp">Профіль</a>
+                            <a href="recordsServlet">Вакцинація</a>
+                            <a href="vaccinationServlet">Записи</a>
+                            <a href="resultsServlet">Результати</a>
+                            <a href="logoutServlet" id="logout">Вихід</a>
+                        </li>
+                    </ul>
+
+            </header>
 
     <div style="display: flex; justify-content: flex-end;">
         <a style="padding: 10px; background: rgb(255, 255, 255); border-radius: 5px; border: 1px solid #000; margin: 10px; text-decoration: none; font-weight: bold; color: #000;" href="#openModal">
@@ -50,10 +73,10 @@
                             <h4><c:out value="${record.nameOfDoctor}" /></h4>
                             <p><c:out value="${record.addressOfHospital}" /></p>
                             <p><c:out value="${record.nameOfHospital}" /></p>
+                            <p class="created-in">Створено: <span><c:out value="${record.createdIn}" /></span></p>
                         </div>
                     </div>
 
-                    <p class="created-in">Створено: <span>2021-02-15</span></p>
                 </span>
 
         </c:forEach>
@@ -63,7 +86,7 @@
 
         <form action="recordsServlet" method="POST">
 
-                        <h2>Новий запис</h2>
+                        <h3>Новий запис</h3>
 
 
                         <content>

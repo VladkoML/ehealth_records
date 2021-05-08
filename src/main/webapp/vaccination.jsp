@@ -1,8 +1,10 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Профіль</title>
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
+    <title>Вакцинація</title>
     <link rel="stylesheet" href="ui/css/menu_style.css">
 </head>
 <body>
@@ -29,15 +31,7 @@
 
         </header>
 
-    <h2>${patient.fullName}</h2>
-    <h3>Дата народження: ${patient.birthday}</h3>
-    <h4>Стать: ${patient.sex}</h4>
-    <h4>Група крові: ${patient.bloodType}</h4>
-    <h4>Зріст: ${patient.height} кг</h4>
-    <h4>Вага: ${patient.weight} кг</h4>
-    <h4>Адреса проживання: ${patient.addressOfResidence}</h4>
-    <h4>Адреса роботи: ${patient.addressOfWork}</h4>
-    <h4>Професія: ${patient.profession}</h4>
+
 
 </body>
 </html>
