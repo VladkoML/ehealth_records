@@ -1,11 +1,15 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <title>Профіль</title>
+    <link rel="stylesheet" href="ui/css/profile_style.css">
     <link rel="stylesheet" href="ui/css/menu_style.css">
 </head>
 <body>
+
+    <div id="bg-image"></div>
 
     <header>
 
@@ -19,9 +23,9 @@
                 </label>
                 <ul class="hidden-menu">
                     <li style="display: flex; flex-direction: column;">
-                        <a href="profile.jsp">Профіль</a>
-                        <a href="recordsServlet">Вакцинація</a>
-                        <a href="vaccinationServlet">Записи</a>
+                        <a href="profileServlet">Профіль</a>
+                        <a href="recordsServlet">Записи</a>
+                        <a href="vaccinationServlet">Вакцинація</a>
                         <a href="resultsServlet">Результати</a>
                         <a href="logoutServlet" id="logout">Вихід</a>
                     </li>
@@ -29,15 +33,122 @@
 
         </header>
 
-    <h2>${patient.fullName}</h2>
-    <h3>Дата народження: ${patient.birthday}</h3>
-    <h4>Стать: ${patient.sex}</h4>
-    <h4>Група крові: ${patient.bloodType}</h4>
-    <h4>Зріст: ${patient.height} кг</h4>
-    <h4>Вага: ${patient.weight} кг</h4>
-    <h4>Адреса проживання: ${patient.addressOfResidence}</h4>
-    <h4>Адреса роботи: ${patient.addressOfWork}</h4>
-    <h4>Професія: ${patient.profession}</h4>
+        <div id="profile">
+
+                <h1 id="profile-name">${patient.fullName}</h1>
+
+                <div class="profile-content-wrap">
+
+                    <div id="profile-content">
+
+                        <span class="profile-content-item">
+                            <h4>Стать:</h4>
+                            <p>${patient.sex}</p>
+                        </span>
+
+                        <span class="profile-content-item">
+                            <h4>Група крові:</h4>
+                            <p>${patient.bloodType}</p>
+                        </span>
+
+                        <span class="profile-content-item">
+                            <h4>Дата народження:</h4>
+                            <p>${patient.birthday}</p>
+                        </span>
+
+                        <span class="profile-content-item">
+                            <h4>Зріст:</h4>
+                            <p>${patient.height} см</p>
+                        </span>
+
+                        <span class="profile-content-item">
+                            <h4>Вага:</h4>
+                            <p>${patient.weight} кг</p>
+                        </span>
+
+                    </div>
+
+                    <div id="profile-info">
+
+                        <div class="profile-info-item">
+                            <h4>Адреса проживання:</h4>
+                            <p>${patient.addressOfResidence}</p>
+                        </div>
+
+                        <div class="profile-info-item">
+                            <h4>Професія:</h4>
+                            <p>${patient.profession}</p>
+                        </div>
+
+                        <div class="profile-info-item">
+                            <h4>Адреса роботи:</h4>
+                            <p>${patient.addressOfWork}</p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <a href="#openModal" id="profile-edit">Редагувати</a>
+
+            </div>
+
+            <span id="openModal">
+
+                    <form action="profileServlet" method="POST">
+
+                                    <h3>Редагування профілю</h3>
+
+                                    <content>
+
+                                        <span class="part-form">
+
+                                            <label for="">
+                                                <h4>ПІБ:</h4>
+                                                <input type="text" name="full-name" value="${patient.fullName}" required>
+                                            </label>
+
+                                            <label for="">
+                                                <h4>Професія:</h4>
+                                                <input type="text" name="profession" value="${patient.profession}" required>
+                                            </label>
+
+                                        </span>
+
+                                        <span class="part-form">
+
+                                            <label for="">
+                                                <h4>Зріст:</h4>
+                                                <input type="number" name="height" value="${patient.height}" required>
+                                            </label>
+
+                                            <label for="">
+                                                <h4>Вага:</h4>
+                                                <input type="number" name="weight" value="${patient.weight}" required>
+                                            </label>
+
+                                        </span>
+
+                                        <span class="part-form">
+
+                                            <label for="">
+                                                <h4>Адреса проживання:</h4>
+                                                <input type="text" name="address-of-residence" value="${patient.addressOfResidence}" required>
+                                            </label>
+
+                                            <label for="">
+                                                <h4>Адреса роботи:</h4>
+                                                <input type="text" name="address-of-work" value="${patient.addressOfWork}">
+                                            </label>
+
+                                        </span>
+
+                                    </content>
+
+                                    <button type="submit">Зберегти зміни</button>
+
+                    </form>
+                </span>
 
 </body>
 </html>

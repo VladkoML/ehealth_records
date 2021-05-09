@@ -1,5 +1,6 @@
-package org.diploma.dao;
+package org.diploma.dao.old;
 
+import org.diploma.dao.ConnectionDB;
 import org.diploma.entity.Patient;
 
 import java.sql.*;

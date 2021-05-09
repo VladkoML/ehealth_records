@@ -10,6 +10,8 @@
 </head>
 <body>
 
+    <div id="bg-image"></div>
+
     <header>
 
             <h1 id="logo">Медична картка амбулаторного хворого</h1>
@@ -22,12 +24,12 @@
                 </label>
                 <ul class="hidden-menu">
                     <li style="display: flex; flex-direction: column;">
-                        <a href="profile.jsp">Профіль</a>
-                        <a href="recordsServlet">Вакцинація</a>
-                        <a href="vaccinationServlet">Записи</a>
-                        <a href="resultsServlet">Результати</a>
-                        <a href="logoutServlet" id="logout">Вихід</a>
-                    </li>
+                                            <a href="profileServlet">Профіль</a>
+                                            <a href="recordsServlet">Записи</a>
+                                            <a href="vaccinationServlet">Вакцинація</a>
+                                            <a href="resultsServlet">Результати</a>
+                                            <a href="logoutServlet" id="logout">Вихід</a>
+                                        </li>
                 </ul>
 
         </header>

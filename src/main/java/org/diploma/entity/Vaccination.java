@@ -8,21 +8,30 @@ public class Vaccination {
     private String vaccineName;
     private LocalDate vaccinated;
     private String reaction;
-    private Patient patient;
+    private String addressOfBuild;
+    private Patient patient = new Patient();
 
     public Vaccination(){
 
     }
 
-    public Vaccination(Integer vaccinationId, String vaccineName, LocalDate vaccinated,
-                       String reaction, Patient patient) {
+    public Vaccination(String vaccineName, LocalDate vaccinated, String reaction,
+                       String addressOfBuild, Patient patient) {
+        this.vaccineName = vaccineName;
+        this.vaccinated = vaccinated;
+        this.reaction = reaction;
+        this.addressOfBuild = addressOfBuild;
+        this.patient = patient;
+    }
 
+    public Vaccination(Integer vaccinationId, String vaccineName, LocalDate vaccinated,
+                       String reaction, String addressOfBuild, Patient patient) {
         this.vaccinationId = vaccinationId;
         this.vaccineName = vaccineName;
         this.vaccinated = vaccinated;
         this.reaction = reaction;
+        this.addressOfBuild = addressOfBuild;
         this.patient = patient;
-
     }
 
     public Integer getVaccinationId() {
@@ -57,6 +66,14 @@ public class Vaccination {
         this.reaction = reaction;
     }
 
+    public String getAddressOfBuild() {
+        return addressOfBuild;
+    }
+
+    public void setAddressOfBuild(String addressOfBuild) {
+        this.addressOfBuild = addressOfBuild;
+    }
+
     public Patient getPatient() {
         return patient;
     }
@@ -64,4 +81,5 @@ public class Vaccination {
     public void setPatient(Patient patient) {
         this.patient = patient;
     }
+
 }

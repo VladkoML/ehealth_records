@@ -7,7 +7,7 @@ public class Result {
     private Integer resultId;
     private LocalDate createdIn;
     private String filePath;
-    private Patient patient;
+    private Patient patient = new Patient();
 
     public Result(){
 

@@ -1,4 +1,12 @@
-.records{
+#wrap-vac{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.vaccinations{
+    min-width: 500px;
+    min-width: 700px;
     font-size: 14px;
     display: block;
     border-radius: 5px;
@@ -7,7 +15,7 @@
     background: #fff;
 }
 
-.records-id{
+.vaccinations-id{
     background: #8a0009;
     border-radius: 5px 5px 0 0;
     color: #fff;
@@ -20,48 +28,40 @@
     padding: 0 10px;
     display: flex;
     justify-content: space-between;
+    font-size: 16px;
 }
 
 .content h4{
     margin: 0;
 }
 
-.records-content{
+.vaccinations-content{
     min-width: 250px;
+    display: flex;
 }
 
-.records-info{
-    min-width: 300px;
-    max-width: 400px;
-    text-align: center;
+.vaccinations-info{
     display: flex;
-    flex-direction: column;
     font-size: 16px;
-    justify-content: center
+    align-items: center;
 }
 
-.records-info h4{
+.vaccinations-info h4{
     margin: 5px;
 }
 
-.records-info p{
+.vaccinations-info p{
     margin: 5px;
 }
 
-.records-content-item{
-    display: flex;
-    padding: 10px 0;
+.vaccinations-content-item{
+    padding: 5px;
 }
 
-.records-content-item h4{
-    width: 125px;
-}
-
-.records-content-item p{
+.vaccinations-content-item p{
     border-left: 3px solid #db000f;
-    padding-left: 5px;
+    padding: 5px;
     margin: 0;
-    width: 100%;
 }
 
 .created-in{
@@ -73,6 +73,7 @@
 
 .created-in span{
     font-style: italic;
+    text-decoration: underline;
 }
 
 form{

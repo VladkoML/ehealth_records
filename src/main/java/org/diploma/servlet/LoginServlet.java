@@ -39,9 +39,9 @@ public class LoginServlet extends HttpServlet {
 
             session.setAttribute("patient", patient);
 
-            req.setAttribute("patient", patient);
+//            req.setAttribute("patient", patient);
 
-            RequestDispatcher requestDispatcher = req.getRequestDispatcher("/menu.html");
+            RequestDispatcher requestDispatcher = req.getRequestDispatcher("/profile.jsp");
             requestDispatcher.forward(req, resp);
 
         } else {

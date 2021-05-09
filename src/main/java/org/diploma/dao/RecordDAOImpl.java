@@ -11,7 +11,7 @@ public class RecordDAOImpl implements CrudDAO<Record>{
 
     private Connection connection;
 
-    private static final String SQL_INSERT_RECORD =
+    private static final String SQL_SAVE_RECORD =
             "INSERT INTO records (" +
                     "created_in, " +
                     "disease, " +
@@ -27,7 +27,7 @@ public class RecordDAOImpl implements CrudDAO<Record>{
             "DELETE FROM records WHERE record_id=?";
 
     private static final String SQL_SELECT_ALL_RECORDS =
-            "SELECT * FROM records";
+            "SELECT * FROM records WHERE patient_id=?";
 
     @Override
     public Record find(Integer id) {
@@ -43,7 +43,7 @@ public class RecordDAOImpl implements CrudDAO<Record>{
 
         try{
 
-            preparedStatement = connection.prepareStatement(SQL_INSERT_RECORD);
+            preparedStatement = connection.prepareStatement(SQL_SAVE_RECORD);
 
             preparedStatement.setObject(1, record.getCreatedIn());
             preparedStatement.setString(2, record.getDisease());
@@ -117,7 +117,7 @@ public class RecordDAOImpl implements CrudDAO<Record>{
     }
 
     @Override
-    public List<Record> findAll() {
+    public List<Record> findAll(int id) {
 
         connection = ConnectionDB.getConnection();
         List<Record> records = new ArrayList<>();
@@ -126,6 +126,8 @@ public class RecordDAOImpl implements CrudDAO<Record>{
         try {
 
             preparedStatement = connection.prepareStatement(SQL_SELECT_ALL_RECORDS);
+
+            preparedStatement.setInt(1, id);
 
             ResultSet resultSet = preparedStatement.executeQuery();
 

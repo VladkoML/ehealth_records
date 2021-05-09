@@ -36,10 +36,10 @@ public class PatientDAOImpl implements CrudDAO<Patient>{
                     "full_name=?, " +
                     "weight=?, " +
                     "height=?, " +
-                    "info=?, " +
                     "address_of_residence=?, " +
                     "address_of_work=?, " +
-                    "profession=?";
+                    "profession=?" +
+                    "WHERE patient_id=?";
 
     private final String SQL_DELETE_ACCOUNT =
             "DELETE FROM patients WHERE patient_id=?";
@@ -175,10 +175,10 @@ public class PatientDAOImpl implements CrudDAO<Patient>{
             preparedStatement.setString(1, patient.getFullName());
             preparedStatement.setInt(2, patient.getWeight());
             preparedStatement.setInt(3, patient.getHeight());
-            preparedStatement.setString(4, patient.getInfo());
-            preparedStatement.setString(5, patient.getAddressOfResidence());
-            preparedStatement.setString(6, patient.getAddressOfWork());
-            preparedStatement.setString(7, patient.getProfession());
+            preparedStatement.setString(4, patient.getAddressOfResidence());
+            preparedStatement.setString(5, patient.getAddressOfWork());
+            preparedStatement.setString(6, patient.getProfession());
+            preparedStatement.setInt(7, patient.getPatientId());
 
             status = preparedStatement.executeUpdate();
 
@@ -234,7 +234,7 @@ public class PatientDAOImpl implements CrudDAO<Patient>{
     }
 
     @Override
-    public List<Patient> findAll() {
+    public List<Patient> findAll(int id) {
         return null;
     }
 

@@ -2,11 +2,12 @@ package org.diploma.servlet;
 
 import org.diploma.dao.CrudDAO;
 import org.diploma.dao.RecordDAOImpl;
+import org.diploma.dao.VaccinationsDAOImpl;
 import org.diploma.entity.Patient;
 import org.diploma.entity.Record;
+import org.diploma.entity.Vaccination;
 
 import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -16,11 +17,9 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
 
-@WebServlet(name = "RecordsServlet", urlPatterns = {"/recordsServlet"})
-public class RecordsServlet extends HttpServlet {
+@WebServlet(name = "VaccinationServlet", urlPatterns = {"/vaccinationServlet"})
+public class VaccinationServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -30,15 +29,15 @@ public class RecordsServlet extends HttpServlet {
         HttpSession session = req.getSession();
         Patient patient = (Patient) session.getAttribute("patient");
 
-        CrudDAO<Record> recordCRUD = new RecordDAOImpl();
+        CrudDAO<Vaccination> vaccinationCRUD = new VaccinationsDAOImpl();
 
         int id = patient.getPatientId();
 
-        patient.setRecords(recordCRUD.findAll(id));
+        patient.setVaccinations(vaccinationCRUD.findAll(id));
 
-        req.setAttribute("records", patient.getRecords());
+        req.setAttribute("vaccinations", patient.getVaccinations());
 
-        RequestDispatcher requestDispatcher = req.getRequestDispatcher("records.jsp");
+        RequestDispatcher requestDispatcher = req.getRequestDispatcher("vaccination.jsp");
         requestDispatcher.forward(req, resp);
 
     }
@@ -52,29 +51,26 @@ public class RecordsServlet extends HttpServlet {
         HttpSession session = req.getSession();
         Patient patient = (Patient) session.getAttribute("patient");
 
-        String doctor = req.getParameter("doctor");
-        String disease = req.getParameter("disease");
-        String hospital = req.getParameter("hospital");
-        String complains = req.getParameter("complains");
-        String address = req.getParameter("address");
-        String treatment = req.getParameter("treatment");
+        String vaccineName = req.getParameter("vaccine-name");
+        String addressOfBuild = req.getParameter("address-of-build");
+        String reaction = req.getParameter("reaction");
 
-        Record record = new Record(
-                LocalDate.now(), disease, complains, treatment,
-                hospital, address, doctor, patient
+        Vaccination Vaccination = new Vaccination(
+                vaccineName, LocalDate.now(), reaction,
+                addressOfBuild, patient
         );
 
-        CrudDAO<Record> recordCRUD = new RecordDAOImpl();
+        CrudDAO<Vaccination> vaccinationsCRUD = new VaccinationsDAOImpl();
 
-        recordCRUD.save(record);
+        vaccinationsCRUD.save(Vaccination);
 
         int id = patient.getPatientId();
 
-        patient.setRecords(recordCRUD.findAll(id));
+        patient.setVaccinations(vaccinationsCRUD.findAll(id));
 
-        req.setAttribute("records", patient.getRecords());
+        req.setAttribute("vaccinations", patient.getVaccinations());
 
-        RequestDispatcher requestDispatcher = req.getRequestDispatcher("records.jsp");
+        RequestDispatcher requestDispatcher = req.getRequestDispatcher("vaccination.jsp");
         requestDispatcher.forward(req, resp);
 
     }

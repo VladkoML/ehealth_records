@@ -10,6 +10,8 @@
 </head>
 <body>
 
+    <div id="bg-image"></div>
+
     <header>
 
                 <h1 id="logo">Медична картка амбулаторного хворого</h1>
@@ -22,12 +24,12 @@
                     </label>
                     <ul class="hidden-menu">
                         <li style="display: flex; flex-direction: column;">
-                            <a href="profile.jsp">Профіль</a>
-                            <a href="recordsServlet">Вакцинація</a>
-                            <a href="vaccinationServlet">Записи</a>
-                            <a href="resultsServlet">Результати</a>
-                            <a href="logoutServlet" id="logout">Вихід</a>
-                        </li>
+                                                <a href="profileServlet">Профіль</a>
+                                                <a href="recordsServlet">Записи</a>
+                                                <a href="vaccinationServlet">Вакцинація</a>
+                                                <a href="resultsServlet">Результати</a>
+                                                <a href="logoutServlet" id="logout">Вихід</a>
+                                            </li>
                     </ul>
 
             </header>
@@ -95,12 +97,12 @@
 
                                 <label for="">
                                     <h4>ПІБ лікаря:</h4>
-                                    <input type="text" name="doctor">
+                                    <input type="text" name="doctor" required>
                                 </label>
 
                                 <label for="">
                                     <h4>Діагноз:</h4>
-                                    <input type="text" name="disease">
+                                    <input type="text" name="disease" required>
                                 </label>
 
                             </span>
@@ -109,12 +111,12 @@
 
                                 <label for="">
                                     <h4>Назва лікувального закладу:</h4>
-                                    <input type="text" name="hospital">
+                                    <input type="text" name="hospital" required>
                                 </label>
 
                                 <label for="">
                                     <h4>Скарги хворого:</h4>
-                                    <textarea rows="5" cols="30" name="complains"></textarea>
+                                    <textarea rows="5" cols="30" name="complains" required></textarea>
                                 </label>
 
                             </span>
@@ -128,7 +130,7 @@
 
                                 <label for="">
                                     <h4>Призначення лікування:</h4>
-                                    <textarea rows="5" cols="30" name="treatment"></textarea>
+                                    <textarea rows="5" cols="30" name="treatment" required></textarea>
                                 </label>
 
                             </span>

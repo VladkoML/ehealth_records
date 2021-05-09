@@ -1,78 +1,79 @@
-.records{
-    font-size: 14px;
-    display: block;
-    border-radius: 5px;
-    box-shadow: 0 3px 15px #000;
-    margin: 10px;
+#profile{
+    box-shadow: 0 5px 10px #000;
+    position: relative;
+    margin: 20px auto;
+    padding: 20px;
+    width: 500px;
     background: #fff;
 }
 
-.records-id{
-    background: #8a0009;
-    border-radius: 5px 5px 0 0;
-    color: #fff;
-    margin: 0;
-    padding: 0px 10px;
-    font-size: 12px;
-}
-
-.content{
-    padding: 0 10px;
-    display: flex;
-    justify-content: space-between;
-}
-
-.content h4{
-    margin: 0;
-}
-
-.records-content{
-    min-width: 250px;
-}
-
-.records-info{
-    min-width: 300px;
-    max-width: 400px;
+#profile-name{
+    color: #8a0009;
+    text-shadow: 1px 2px 4px rgb(77, 77, 77);
     text-align: center;
+    margin: 0;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #8a0009;
+}
+
+.profile-content-wrap{
     display: flex;
-    flex-direction: column;
     font-size: 16px;
-    justify-content: center
+    padding: 20px 0;
 }
 
-.records-info h4{
-    margin: 5px;
+#profile-content{
+    min-width: 160px;
 }
 
-.records-info p{
-    margin: 5px;
+.profile-content-item > h4{
+    margin: 5px
 }
 
-.records-content-item{
-    display: flex;
-    padding: 10px 0;
-}
-
-.records-content-item h4{
-    width: 125px;
-}
-
-.records-content-item p{
+.profile-content-item > p{
     border-left: 3px solid #db000f;
     padding-left: 5px;
-    margin: 0;
-    width: 100%;
+    margin-left: 10px;
 }
 
-.created-in{
-    border-radius: 0 0 5px 5px;
+.profile-info-item > h4{
+    margin: 5px
+}
+
+#profile-info{
+    padding-left: 5px;
+    border-left: 2px solid #8a0009;
+}
+
+.profile-info-item > h4{
+    margin: 5px
+}
+
+.profile-info-item > p{
+    border-left: 3px solid #db000f;
+    padding-left: 5px;
+    margin-left: 10px;
+}
+
+.profile-info-item > h4{
+    margin: 5px
+}
+
+#profile-edit{
+    font-size: 16px;
     font-weight: bold;
-    color: #8a0009;;
-    margin: 0;
+    padding: 10px 25px;
+    background: #8a0009;
+    border: none;
+    cursor: pointer;
+    color: #fff;
+    position: absolute;
+    right: 20px;
+    box-shadow: 0 5px 10px #000;
 }
 
-.created-in span{
-    font-style: italic;
+#profile-edit:hover{
+    background: #bd000d;
 }
 
 form{
@@ -138,15 +139,13 @@ input[type=text] {
     font-size: 14px;
 }
 
-textarea{
-    min-width: 250px;
-    max-width: 250px;
-    min-height: 100px;
-    max-height: 100px;
-    border: 1px solid #ff575a;
+input[type=number] {
+    border: none;
+    border-bottom: 1px solid #ff575a;
+    font-size: 14px;
 }
 
-input:focus, textarea:focus{
+input:focus{
     background: #ffd3d4;
     outline: none;
 }
