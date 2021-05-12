@@ -25,7 +25,7 @@ public class VaccinationsDAOImpl implements CrudDAO<Vaccination>{
                     "VALUES (?, ?, ?, ?, ?)";
 
     private static final String SQL_SELECT_ALL_RECORDS =
-            "SELECT * FROM vaccinations WHERE patient_id=?";
+            "SELECT * FROM vaccinations WHERE patient_id=? ORDER BY vaccination_id DESC";
 
     @Override
     public Vaccination find(Integer id) {

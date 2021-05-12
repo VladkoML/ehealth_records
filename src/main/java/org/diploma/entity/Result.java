@@ -7,19 +7,29 @@ public class Result {
     private Integer resultId;
     private LocalDate createdIn;
     private String filePath;
+    private String description;
+    private String name;
     private Patient patient = new Patient();
 
     public Result(){
 
     }
 
-    public Result(Integer resultId, LocalDate createdIn, String filePath, Patient patient) {
+    public Result(LocalDate createdIn, String filePath, String description, String name, Patient patient) {
+        this.createdIn = createdIn;
+        this.filePath = filePath;
+        this.description = description;
+        this.name = name;
+        this.patient = patient;
+    }
 
+    public Result(Integer resultId, LocalDate createdIn, String filePath, String description, String name, Patient patient) {
         this.resultId = resultId;
         this.createdIn = createdIn;
         this.filePath = filePath;
+        this.description = description;
+        this.name = name;
         this.patient = patient;
-
     }
 
     public Integer getResultId() {
@@ -52,5 +62,21 @@ public class Result {
 
     public void setPatient(Patient patient) {
         this.patient = patient;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }

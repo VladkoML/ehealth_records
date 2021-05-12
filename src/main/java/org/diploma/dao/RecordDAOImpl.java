@@ -27,7 +27,7 @@ public class RecordDAOImpl implements CrudDAO<Record>{
             "DELETE FROM records WHERE record_id=?";
 
     private static final String SQL_SELECT_ALL_RECORDS =
-            "SELECT * FROM records WHERE patient_id=?";
+            "SELECT * FROM records WHERE patient_id=? ORDER BY record_id DESC";
 
     @Override
     public Record find(Integer id) {
