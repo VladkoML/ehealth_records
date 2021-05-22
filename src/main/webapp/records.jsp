@@ -27,7 +27,7 @@
                                                 <a href="profileServlet">Профіль</a>
                                                 <a href="recordsServlet">Записи</a>
                                                 <a href="vaccinationServlet">Вакцинація</a>
-                                                <a href="resultsServlet">Результати</a>
+                                                <a href="resultsServlet">Аналізи</a>
                                                 <a href="logoutServlet" id="logout">Вихід</a>
                                             </li>
                     </ul>

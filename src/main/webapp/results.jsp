@@ -4,7 +4,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
-    <title>Результати</title>
+    <title>Аналізи</title>
     <link rel="stylesheet" href="ui/css/results_style.css">
     <link rel="stylesheet" href="ui/css/menu_style.css">
 </head>
@@ -27,7 +27,7 @@
                                             <a href="profileServlet">Профіль</a>
                                             <a href="recordsServlet">Записи</a>
                                             <a href="vaccinationServlet">Вакцинація</a>
-                                            <a href="resultsServlet">Результати</a>
+                                            <a href="resultsServlet">Аналізи</a>
                                             <a href="logoutServlet" id="logout">Вихід</a>
                                         </li>
                 </ul>
@@ -91,7 +91,7 @@
 
                         <form action="resultsServlet" action="upload" method="POST" enctype="multipart/form-data">
 
-                                        <h3>Загрузити файл</h3>
+                                        <h3>Завантажити файл</h3>
 
                                         <content>
 
@@ -105,7 +105,7 @@
 
                                         </content>
 
-                                        <button type="submit">Загрузити</button>
+                                        <button type="submit">Завантажити</button>
 
                         </form>
                     </span>
